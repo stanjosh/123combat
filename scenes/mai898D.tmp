@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cky46iw143otf"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_8e7on"]
+[ext_resource type="PackedScene" uid="uid://dk0577f0ncipm" path="res://scenes/background.tscn" id="2_866be"]
+[ext_resource type="PackedScene" uid="uid://df2krog8xxkcv" path="res://gui/hud.tscn" id="3_fhvpl"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8e7on")
+
+[node name="Background" parent="." instance=ExtResource("2_866be")]
+
+[node name="HUD" parent="." instance=ExtResource("3_fhvpl")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0

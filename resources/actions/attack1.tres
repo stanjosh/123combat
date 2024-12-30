@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://b6h8agvmt1wr2"]
+
+[ext_resource type="Script" path="res://resources/scripts/action.gd" id="1_a0ir2"]
+
+[resource]
+script = ExtResource("1_a0ir2")
+name = "Basic Attack"
+description = "Attack enemy for %s"
+texture = ""
+action_type = null
+value = 0.0
+turns_active = 0
+additional_actions = Array[ExtResource("1_a0ir2")]([])
+consumable = false

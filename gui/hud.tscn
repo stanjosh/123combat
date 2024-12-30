@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://df2krog8xxkcv"]
+
+[ext_resource type="Script" path="res://gui/hud.gd" id="1_fpg1w"]
+[ext_resource type="Script" path="res://gui/action_slots.gd" id="2_sm8f2"]
+[ext_resource type="PackedScene" uid="uid://bj0acbl57kval" path="res://gui/action_container.tscn" id="3_51u71"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 3
+follow_viewport_enabled = true
+script = ExtResource("1_fpg1w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="InfoBox" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="InfoPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/InfoBox"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoBox/InfoPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="InfoDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer/InfoBox/InfoPanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Status"
+fit_content = true
+
+[node name="GameSpacer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BattleBar" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BattleBar"]
+layout_mode = 2
+
+[node name="BattleStatus" type="MarginContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/BattleStatus"]
+layout_mode = 2
+
+[node name="ActionSlots" type="PanelContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_sm8f2")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/ActionSlots"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/ActionSlots/MarginContainer"]
+layout_mode = 2
+
+[node name="ActionContainer" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/ActionSlots/MarginContainer/HBoxContainer" instance=ExtResource("3_51u71")]
+layout_mode = 2
+
+[node name="ActionContainer2" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/ActionSlots/MarginContainer/HBoxContainer" instance=ExtResource("3_51u71")]
+layout_mode = 2
+
+[node name="ActionContainer3" parent="MarginContainer/VBoxContainer/BattleBar/HBoxContainer/ActionSlots/MarginContainer/HBoxContainer" instance=ExtResource("3_51u71")]
+layout_mode = 2

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://c4bntlshtfkmf"]
+
+[ext_resource type="Script" path="res://resources/scripts/action.gd" id="1_041do"]
+
+[resource]
+script = ExtResource("1_041do")
+name = "idle"
+description = "I'm waiting!"
+texture = ""
+action_type = null
+value = 0.0
+turns_active = 0
+additional_actions = Array[ExtResource("1_041do")]([])
+consumable = false

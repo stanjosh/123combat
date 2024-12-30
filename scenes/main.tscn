@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cky46iw143otf"]
+
+[ext_resource type="PackedScene" uid="uid://dk0577f0ncipm" path="res://scenes/background.tscn" id="2_866be"]
+[ext_resource type="PackedScene" uid="uid://df2krog8xxkcv" path="res://gui/hud.tscn" id="3_fhvpl"]
+[ext_resource type="Script" path="res://scenes/battle.gd" id="3_w375u"]
+[ext_resource type="PackedScene" uid="uid://p81p0hgofcw6" path="res://scenes/enemy.tscn" id="4_e3rry"]
+
+[node name="Main" type="Node"]
+
+[node name="Background" parent="." instance=ExtResource("2_866be")]
+
+[node name="HUD" parent="." instance=ExtResource("3_fhvpl")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Interaction" type="Node2D" parent="."]
+script = ExtResource("3_w375u")
+
+[node name="Enemy" parent="Interaction" instance=ExtResource("4_e3rry")]

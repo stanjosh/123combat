@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj0acbl57kval"]
+
+[ext_resource type="Script" path="res://gui/action_container.gd" id="1_dablc"]
+[ext_resource type="Texture2D" uid="uid://lswvrfyeughl" path="res://icon.svg" id="1_uf1b5"]
+[ext_resource type="Resource" uid="uid://c4bntlshtfkmf" path="res://resources/actions/idle.tres" id="2_igaxy"]
+
+[node name="ActionContainer" type="MarginContainer"]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_dablc")
+action_resource = ExtResource("2_igaxy")
+
+[node name="ActionTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_uf1b5")
+
+[node name="ActionButton" type="Button" parent="."]
+layout_mode = 2
+flat = true
+
+[connection signal="focus_entered" from="ActionButton" to="." method="_on_active"]
+[connection signal="focus_exited" from="ActionButton" to="." method="_on_inactive"]
+[connection signal="mouse_entered" from="ActionButton" to="." method="_on_active"]
+[connection signal="mouse_exited" from="ActionButton" to="." method="_on_inactive"]
+[connection signal="pressed" from="ActionButton" to="." method="_on_action_button_pressed"]
