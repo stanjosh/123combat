@@ -10,27 +10,26 @@ enum StatType {
 	MOD_DEFEND,
 	MOD_ACCURACY
 }
-@onready var sprite_2d: Sprite2D = Sprite2D.new()
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var display_name : String
 @export var texture : Texture2D = preload("res://resources/assets/icons(128)/character.png")
 @export var is_enemy : bool = true
 @export var default_action : Action = load("res://resources/actions/idle.tres")
-@export var stats : Dictionary = {
+@export var base_stats : Dictionary = {
 	"attack" : 1,
 	"defend" : 0,
-	"health" : 0,
-	"speed" : 0,
+	"health" : 100,
+	"speed" : 1,
 	"accuracy" : 80,
 }
 
-@export var modified_stats : Dictionary = {
-	"health" : 100
-}
+var modified_stats : Dictionary = {}
 
 var useable_actions : Array[Action]
 
 func _ready() -> void:
+	modified_stats = base_stats
 	sprite_2d.texture = texture
 
 
