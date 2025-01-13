@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://c4bntlshtfkmf"]
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://c4bntlshtfkmf"]
 
 [ext_resource type="Script" path="res://resources/scripts/action.gd" id="1_041do"]
+[ext_resource type="Texture2D" uid="uid://d0nfycofu34bg" path="res://resources/assets/icons(128)/sword.png" id="2_jbsg2"]
 
 [resource]
 script = ExtResource("1_041do")
 name = "idle"
 description = "I'm waiting!"
-texture = ""
+texture = ExtResource("2_jbsg2")
 action_type = null
 value = 0.0
 turns_active = 0

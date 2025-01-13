@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cky46iw143otf"]
+
+[ext_resource type="PackedScene" uid="uid://dk0577f0ncipm" path="res://scenes/background.tscn" id="2_866be"]
+[ext_resource type="PackedScene" uid="uid://df2krog8xxkcv" path="res://gui/hud.tscn" id="3_fhvpl"]
+[ext_resource type="Script" path="res://scenes/battle.gd" id="3_w375u"]
+[ext_resource type="Script" path="res://scenes/battle_step.gd" id="4_l6rn2"]
+
+[node name="Main" type="Node"]
+
+[node name="Background" parent="." instance=ExtResource("2_866be")]
+spin_time = 5.0
+target_spin = 1.8
+
+[node name="HUD" parent="." instance=ExtResource("3_fhvpl")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="BattleProcess" type="Node" parent="."]
+script = ExtResource("3_w375u")
+
+[node name="BattleStep" type="Node" parent="BattleProcess"]
+script = ExtResource("4_l6rn2")
+
+[connection signal="child_order_changed" from="BattleProcess" to="BattleProcess" method="_on_child_order_changed"]

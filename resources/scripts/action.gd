@@ -7,7 +7,7 @@ class_name Action
 @export_multiline var description : String :
 	get:
 		return get_description(description)
-@export var texture : String
+@export var texture : Texture2D
 @export var effect : PackedScene
 @export_enum("Attack", "Defend", "Modify Health", "Modify Speed", "Modify Accuracy", "Idle") var action_type
 @export var value : float

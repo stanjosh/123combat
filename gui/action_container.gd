@@ -8,7 +8,7 @@ extends MarginContainer
 	set(value):
 		action_resource = value
 		if is_node_ready():
-			action_texture.texture = load(action_resource.texture)
+			action_texture.texture = action_resource.texture
 		
 
 

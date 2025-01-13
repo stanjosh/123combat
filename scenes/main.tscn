@@ -1,20 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://cky46iw143otf"]
+[gd_scene load_steps=12 format=3 uid="uid://cky46iw143otf"]
 
 [ext_resource type="PackedScene" uid="uid://dk0577f0ncipm" path="res://scenes/background.tscn" id="2_866be"]
 [ext_resource type="PackedScene" uid="uid://df2krog8xxkcv" path="res://gui/hud.tscn" id="3_fhvpl"]
 [ext_resource type="Script" path="res://scenes/battle.gd" id="3_w375u"]
-[ext_resource type="PackedScene" uid="uid://p81p0hgofcw6" path="res://scenes/enemy.tscn" id="4_e3rry"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="3_wtof8"]
+[ext_resource type="Script" path="res://scenes/draw_step.gd" id="4_cqh1t"]
+[ext_resource type="Script" path="res://scenes/enemy_step.gd" id="5_1evje"]
+[ext_resource type="Script" path="res://resources/entities/entity.gd" id="6_nep0r"]
+[ext_resource type="Resource" uid="uid://c4bntlshtfkmf" path="res://resources/actions/idle.tres" id="7_smyde"]
+[ext_resource type="Texture2D" uid="uid://bgowux58clx1i" path="res://resources/assets/icons(128)/pawn.png" id="8_yi0np"]
+
+[sub_resource type="Resource" id="Resource_gstbs"]
+script = ExtResource("6_nep0r")
+display_name = "Player!"
+is_enemy = false
+base_stats = {
+"accuracy": 80,
+"attack": 1,
+"defend": 0,
+"health": 100,
+"speed": 1
+}
+
+[sub_resource type="Resource" id="Resource_agcrw"]
+script = ExtResource("6_nep0r")
+display_name = "Berkel"
+texture = ExtResource("8_yi0np")
+is_enemy = true
+default_action = ExtResource("7_smyde")
+base_stats = {
+"accuracy": 80,
+"attack": 1,
+"defend": 0,
+"health": 100,
+"speed": 1
+}
 
 [node name="Main" type="Node"]
 
 [node name="Background" parent="." instance=ExtResource("2_866be")]
+spin_time = 5.0
+target_spin = 0.955
 
 [node name="HUD" parent="." instance=ExtResource("3_fhvpl")]
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="Interaction" type="Node2D" parent="."]
+[node name="Player" type="Node" parent="."]
+script = ExtResource("3_wtof8")
+entity = SubResource("Resource_gstbs")
+
+[node name="BattleProcess" type="Node" parent="."]
 script = ExtResource("3_w375u")
 
-[node name="Enemy" parent="Interaction" instance=ExtResource("4_e3rry")]
+[node name="DrawStep" type="Node" parent="BattleProcess"]
+script = ExtResource("4_cqh1t")
+
+[node name="EnemyStep" type="Node" parent="BattleProcess"]
+script = ExtResource("5_1evje")
+enemies = Array[ExtResource("6_nep0r")]([SubResource("Resource_agcrw")])
+
+[connection signal="child_order_changed" from="BattleProcess" to="BattleProcess" method="_on_child_order_changed"]
