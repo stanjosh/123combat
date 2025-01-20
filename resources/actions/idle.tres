@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://c4bntlshtfkmf"]
 
-[ext_resource type="Script" path="res://resources/scripts/action.gd" id="1_041do"]
+[ext_resource type="Script" path="res://resources/scripts/action_info.gd" id="1_041do"]
 [ext_resource type="Texture2D" uid="uid://d0nfycofu34bg" path="res://resources/assets/icons(128)/sword.png" id="2_jbsg2"]
 
 [resource]

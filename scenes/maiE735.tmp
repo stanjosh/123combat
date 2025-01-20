@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbeoafourbxk0"]
+[gd_scene load_steps=7 format=3 uid="uid://bbeoafourbxk0"]
 
 [ext_resource type="PackedScene" uid="uid://dk0577f0ncipm" path="res://scenes/background.tscn" id="2_866be"]
 [ext_resource type="PackedScene" uid="uid://df2krog8xxkcv" path="res://gui/hud.tscn" id="3_fhvpl"]
+[ext_resource type="PackedScene" uid="uid://ctdc5p253u4gw" path="res://scenes/battle.tscn" id="4_2llm3"]
 [ext_resource type="Script" path="res://resources/entities/entity_info.gd" id="5_0keaw"]
 
 [sub_resource type="GDScript" id="GDScript_4r4ss"]
@@ -26,9 +27,8 @@ useable_actions = null
 [node name="Background" parent="." instance=ExtResource("2_866be")]
 spin_time = 5.0
 target_spin = 0.955
-metadata/_edit_lock_ = true
 
-[node name="Battle" parent="." instance=ExtResource("3_fhvpl")]
+[node name="HUD" parent="." instance=ExtResource("3_fhvpl")]
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -36,3 +36,5 @@ anchor_mode = 0
 [node name="Player" type="Node" parent="."]
 script = SubResource("GDScript_4r4ss")
 entity = SubResource("Resource_gstbs")
+
+[node name="Battle" parent="." instance=ExtResource("4_2llm3")]

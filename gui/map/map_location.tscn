@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy1pbvrcbopat"]
+
+[ext_resource type="Script" path="res://gui/map/map_location_node.gd" id="1_f8yeh"]
+
+[node name="MapLocation" type="Node2D"]
+script = ExtResource("1_f8yeh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = 64.0
+offset_right = 33.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4

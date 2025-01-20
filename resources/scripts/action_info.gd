@@ -1,5 +1,5 @@
 extends Resource
-class_name Action
+class_name ActionInfo
 
 
 
@@ -12,7 +12,7 @@ class_name Action
 @export_enum("Attack", "Defend", "Modify Health", "Modify Speed", "Modify Accuracy", "Idle") var action_type
 @export var value : float
 @export var turns_active : int
-@export var additional_actions : Array[Action]
+@export var additional_actions : Array[ActionInfo]
 @export var consumable : bool = false
 
 

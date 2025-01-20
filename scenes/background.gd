@@ -20,3 +20,7 @@ func color_fade(color1: Color, color2: Color, color3: Color) -> void:
 func spin(new_spin : float) -> void:	
 	var tween = get_tree().create_tween()
 	tween.tween_property(material, "shader_parameter/spin_amount", target_spin, spin_time)
+
+
+func _on_map_child_entered_tree(node: Node) -> void:
+	pass # Replace with function body.
